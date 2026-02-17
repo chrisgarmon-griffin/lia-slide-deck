@@ -8,58 +8,62 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--gold:#D4A012;--gold-l:#F0C94B;--dk:#0D1117;--card:#161B22;--bd:#21262D;--tx:#E6EDF3;--mu:#8B949E;--red:#E05252;--grn:#3FB950}
+:root{--gold:#D4A012;--dk:#0D1117;--card:#161B22;--bd:#21262D;--tx:#E6EDF3;--mu:#8B949E;--red:#E05252;--grn:#3FB950}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--dk);color:var(--tx);overflow:hidden;height:100vh;width:100vw}
 .deck{width:100vw;height:100vh;display:flex;flex-direction:column}
 
-/* Top */
+/* Top bar */
 .top{width:100%;padding:28px 0 18px;text-align:center;border-bottom:1px solid var(--bd);background:linear-gradient(180deg,rgba(212,160,18,0.06),transparent);flex-shrink:0}
 .top span{font-size:22px;font-weight:300;letter-spacing:6px;color:var(--gold);text-transform:uppercase}
 .top b{font-weight:600}
 
-/* Body */
+/* Slide body */
 .body{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px 80px;animation:fadeIn .6s ease}
 @keyframes fadeIn{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:translateY(0)}}
 
-.icon{font-size:48px;margin-bottom:20px;opacity:.9}
-.hl{font-size:clamp(36px,4.5vw,60px);font-weight:600;text-align:center;margin-bottom:40px;line-height:1.15;letter-spacing:-.5px;max-width:900px}
-.g{color:var(--gold)}
+/* Icon */
+.icon{font-size:44px;margin-bottom:16px;opacity:.9}
+
+/* Headline — always two lines */
+.hl{text-align:center;margin-bottom:36px;max-width:900px}
+.hl .l1{display:block;font-size:clamp(30px,3.8vw,50px);font-weight:600;color:var(--tx);line-height:1.2;letter-spacing:-.3px}
+.hl .l2{display:block;font-size:clamp(30px,3.8vw,50px);font-weight:600;color:var(--gold);line-height:1.2;letter-spacing:-.3px;margin-top:4px}
 
 /* Bullets */
-.bl{list-style:none;max-width:800px;width:100%}
-.bl li{font-size:clamp(20px,2.2vw,30px);font-weight:300;padding:14px 0;border-bottom:1px solid var(--bd);display:flex;align-items:baseline;gap:16px;line-height:1.4}
+.bl{list-style:none;max-width:760px;width:100%}
+.bl li{font-size:clamp(19px,2vw,28px);font-weight:300;padding:13px 0;border-bottom:1px solid var(--bd);display:flex;align-items:baseline;gap:14px;line-height:1.4}
 .bl li:last-child{border-bottom:none}
-.bm{color:var(--gold);font-weight:500;flex-shrink:0;font-size:.7em}
+.bm{color:var(--gold);font-weight:600;flex-shrink:0;font-size:.65em;min-width:20px;text-align:center}
 .bm.r{color:var(--red)}.bm.gn{color:var(--grn)}
 
-/* Flow */
-.flow{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center;max-width:1000px}
-.fs{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:22px 28px;text-align:center;min-width:180px}
-.fs .fl{font-size:14px;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:2px;margin-bottom:6px}
-.fs .fd{font-size:20px;font-weight:300}
-.fa{font-size:28px;color:var(--gold);font-weight:300}
+/* Flow boxes */
+.flow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;max-width:1000px}
+.fs{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:20px 24px;text-align:center;width:190px}
+.fs .fl{font-size:13px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:2px;margin-bottom:6px}
+.fs .fd{font-size:18px;font-weight:300}
+.fa{font-size:26px;color:var(--gold);font-weight:300}
 
-/* Tool Card */
-.tc{max-width:780px;width:100%}
-.tr{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--bd);align-items:baseline}
+/* Tool card — fixed grid layout */
+.tc{max-width:760px;width:100%}
+.tr{display:grid;grid-template-columns:150px 1fr;gap:0;padding:16px 0;border-bottom:1px solid var(--bd);align-items:start}
 .tr:last-child{border-bottom:none}
-.tl{font-size:clamp(14px,1.4vw,18px);font-weight:500;color:var(--gold);min-width:140px;flex-shrink:0;text-transform:uppercase;letter-spacing:1px}
-.tv{font-size:clamp(18px,2vw,26px);font-weight:300;line-height:1.4}
+.tl{font-size:clamp(12px,1.2vw,15px);font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:1px;padding-top:4px;line-height:1.4}
+.tv{font-size:clamp(17px,1.8vw,24px);font-weight:300;line-height:1.4;padding-left:16px;border-left:2px solid var(--bd)}
 
 /* Waterfall */
-.wf{max-width:700px;width:100%}
-.wt{display:flex;align-items:center;gap:24px;padding:20px 0;border-bottom:1px solid var(--bd)}
+.wf{max-width:680px;width:100%}
+.wt{display:grid;grid-template-columns:100px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--bd);align-items:center}
 .wt:last-child{border-bottom:none}
-.wb{background:var(--card);border:1px solid var(--gold);border-radius:8px;padding:8px 16px;font-size:16px;font-weight:600;color:var(--gold);min-width:90px;text-align:center;letter-spacing:1px}
+.wb{background:var(--card);border:1px solid var(--gold);border-radius:8px;padding:8px 0;font-size:15px;font-weight:600;color:var(--gold);text-align:center;letter-spacing:1px}
 .wb.st{background:rgba(212,160,18,.15)}
-.wn{font-size:clamp(18px,2vw,26px);font-weight:300}
+.wn{font-size:clamp(18px,2vw,24px);font-weight:300}
 .wn small{font-size:14px;color:var(--mu);font-weight:400;margin-left:4px}
-.wsub{margin-top:24px;font-size:18px;color:var(--mu);font-weight:300}
+.wsub{margin-top:24px;font-size:17px;color:var(--mu);font-weight:300;text-align:center}
 
-/* CTA */
-.cta{font-size:clamp(22px,2.5vw,34px);font-weight:400;color:var(--gold);letter-spacing:2px;margin-top:30px;padding:14px 32px;border:1px solid rgba(212,160,18,.3);border-radius:12px;background:rgba(212,160,18,.06)}
+/* CTA box */
+.cta{font-size:clamp(20px,2.2vw,30px);font-weight:400;color:var(--gold);letter-spacing:2px;margin-top:28px;padding:14px 36px;border:1px solid rgba(212,160,18,.3);border-radius:12px;background:rgba(212,160,18,.06)}
 
-/* Bottom */
+/* Bottom bar */
 .bot{width:100%;padding:16px 40px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd);flex-shrink:0;background:rgba(13,17,23,.95)}
 .bot-url{font-size:15px;color:var(--mu);letter-spacing:1px}
 .dots{display:flex;gap:6px;align-items:center}
@@ -67,8 +71,8 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--dk);color:var(--t
 .dot.on{background:var(--gold);width:24px;border-radius:4px}
 .snum{font-size:14px;color:var(--mu);min-width:50px;text-align:right}
 
-/* Controls */
-.ctrl{position:fixed;bottom:70px;right:30px;display:flex;gap:8px;z-index:100;opacity:.35;transition:opacity .3s}
+/* Playback controls */
+.ctrl{position:fixed;bottom:70px;right:30px;display:flex;gap:8px;z-index:100;opacity:.3;transition:opacity .3s}
 .ctrl:hover{opacity:1}
 .cb{background:var(--card);border:1px solid var(--bd);color:var(--tx);width:40px;height:40px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:all .2s}
 .cb:hover{border-color:var(--gold);color:var(--gold)}
@@ -91,24 +95,27 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--dk);color:var(--t
 </div>
 <script>
 const S=[
-// 1
+
+// 1 — Hook
 ()=>`<div class="icon">⚡</div>
-<div class="hl">Non-QM Is Complex. <span class="g">LIA Brings Clarity.</span></div>
-<ul class="bl"><li><span class="bm">›</span>Multiple investors, overlapping guidelines</li>
+<div class="hl"><span class="l1">Non-QM Is Complex.</span><span class="l2">LIA Brings Clarity.</span></div>
+<ul class="bl">
+<li><span class="bm">›</span>Multiple investors, overlapping guidelines</li>
 <li><span class="bm">›</span>Every scenario has unique moving parts</li>
 <li><span class="bm">›</span>Guesswork leads to delays and fallout</li></ul>`,
 
-// 2
+// 2 — Why LIA
 ()=>`<div class="icon">🧭</div>
-<div class="hl">LIA Replaces Guesswork <span class="g">with Strategy</span></div>
-<ul class="bl"><li><span class="bm">›</span>Structured decision support for every phase</li>
+<div class="hl"><span class="l1">LIA Replaces Guesswork</span><span class="l2">with Strategy</span></div>
+<ul class="bl">
+<li><span class="bm">›</span>Structured decision support for every phase</li>
 <li><span class="bm">›</span>Reduces uncertainty before underwriting</li>
 <li><span class="bm">›</span>Improves speed, consistency, and confidence</li></ul>`,
 
-// 3
+// 3 — Golden Rule
 ()=>`<div class="icon">🔑</div>
-<div class="hl"><span class="g">Discovery First.</span> Pricing Last.</div>
-<div style="height:20px"></div>
+<div class="hl"><span class="l2">Discovery First.</span><span class="l1">Pricing Last.</span></div>
+<div style="height:16px"></div>
 <div class="flow">
 <div class="fs"><div class="fl">Discovery</div><div class="fd">Identify viable options</div></div>
 <div class="fa">→</div>
@@ -119,117 +126,126 @@ const S=[
 <div class="fs"><div class="fl">Pricing</div><div class="fd">Confirm with MISMO 3.4</div></div>
 </div>`,
 
-// 4
+// 4 — Right Tool
 ()=>`<div class="icon">🛠</div>
-<div class="hl">Use the Right Tool <span class="g">at the Right Time</span></div>
-<ul class="bl"><li><span class="bm">›</span>LIA has five specialized tools — not one chat</li>
+<div class="hl"><span class="l1">Use the Right Tool</span><span class="l2">at the Right Time</span></div>
+<ul class="bl">
+<li><span class="bm">›</span>LIA has five specialized tools — not one chat</li>
 <li><span class="bm">›</span>Each serves a distinct stage of the workflow</li>
 <li><span class="bm">›</span>Sequence drives accuracy and confidence</li></ul>`,
 
-// 5
-()=>`<div class="hl"><span class="g">General Chat</span> — Strategy &amp; Coaching</div>
+// 5 — General Chat
+()=>`<div class="hl"><span class="l2">General Chat</span><span class="l1">Strategy &amp; Coaching</span></div>
 <div class="tc">
 <div class="tr"><div class="tl">Purpose</div><div class="tv">Sales training, communication support, and scenario discussion</div></div>
 <div class="tr"><div class="tl">Best Used When</div><div class="tv">You need coaching, email drafting, or general non-QM education</div></div>
 <div class="tr"><div class="tl">Key Rule</div><div class="tv">Not for investor selection or guideline confirmation</div></div>
 </div>`,
 
-// 6
-()=>`<div class="hl"><span class="g">Find a Loan Product</span> — Explore Options</div>
+// 6 — Find a Loan Product
+()=>`<div class="hl"><span class="l2">Find a Loan Product</span><span class="l1">Explore Options</span></div>
 <div class="tc">
 <div class="tr"><div class="tl">Purpose</div><div class="tv">Broad discovery across all non-QM investor guidelines</div></div>
 <div class="tr"><div class="tl">Best Used When</div><div class="tv">You're unsure which investor fits or need Plan A / B / C options</div></div>
 <div class="tr"><div class="tl">Key Rule</div><div class="tv">Results are directional guidance — not approvals</div></div>
 </div>`,
 
-// 7
-()=>`<div class="hl"><span class="g">Chat with a Product</span> — Guideline Precision</div>
+// 7 — Chat with a Product
+()=>`<div class="hl"><span class="l2">Chat with a Product</span><span class="l1">Guideline Precision</span></div>
 <div class="tc">
 <div class="tr"><div class="tl">Purpose</div><div class="tv">Investor-specific eligibility and matrix-level accuracy</div></div>
 <div class="tr"><div class="tl">Best Used When</div><div class="tv">You've narrowed to one or two investors and need precise answers</div></div>
 <div class="tr"><div class="tl">Key Rule</div><div class="tv">Skipping this step leads to underwriting surprises</div></div>
 </div>`,
 
-// 8
-()=>`<div class="hl"><span class="g">Chat with Any PDF</span> — Document Review</div>
+// 8 — Chat with Any PDF
+()=>`<div class="hl"><span class="l2">Chat with Any PDF</span><span class="l1">Document Review</span></div>
 <div class="tc">
 <div class="tr"><div class="tl">Purpose</div><div class="tv">Pre-underwriting red flag identification on credit reports, appraisals, and key documents</div></div>
 <div class="tr"><div class="tl">Best Used When</div><div class="tv">You need to identify issues before submission — not calculate income</div></div>
 <div class="tr"><div class="tl">Key Rule</div><div class="tv">Upload with context — vague prompts produce vague results</div></div>
 </div>`,
 
-// 9
-()=>`<div class="hl"><span class="g">MISMO 3.4 Upload</span> — Required Before Quoting</div>
+// 9 — MISMO 3.4
+()=>`<div class="hl"><span class="l2">MISMO 3.4 Upload</span><span class="l1">Required Before Quoting</span></div>
 <div class="tc">
 <div class="tr"><div class="tl">Purpose</div><div class="tv">Qualification validation and pricing confirmation using LendingPad data</div></div>
 <div class="tr"><div class="tl">Best Used When</div><div class="tv">Borrower data is in LendingPad and you're ready to confirm pricing</div></div>
 <div class="tr"><div class="tl">Key Rule</div><div class="tv">Never quote pricing without running MISMO first</div></div>
 </div>`,
 
-// 10
+// 10 — Detailed Inputs
 ()=>`<div class="icon">🎯</div>
-<div class="hl"><span class="g">Detailed Inputs</span> = Better Results</div>
-<ul class="bl"><li><span class="bm">›</span>Include FICO, income type, property, and loan purpose</li>
+<div class="hl"><span class="l2">Detailed Inputs</span><span class="l1">= Better Results</span></div>
+<ul class="bl">
+<li><span class="bm">›</span>Include FICO, income type, property, and loan purpose</li>
 <li><span class="bm">›</span>Call out known challenges upfront</li>
 <li><span class="bm">›</span>Vague prompts produce vague answers</li>
 <li><span class="bm">›</span>More context → more precision</li></ul>`,
 
-// 11
-()=>`<div class="hl">Common Mistakes <span class="g">to Avoid</span></div>
-<ul class="bl"><li><span class="bm r">✕</span>Quoting pricing before MISMO validation</li>
+// 11 — Mistakes 1
+()=>`<div class="hl"><span class="l1">Common Mistakes</span><span class="l2">to Avoid</span></div>
+<ul class="bl">
+<li><span class="bm r">✕</span>Quoting pricing before MISMO validation</li>
 <li><span class="bm r">✕</span>Skipping "Chat with a Product" precision checks</li>
 <li><span class="bm r">✕</span>Treating "Find a Loan Product" as approval</li></ul>`,
 
-// 12
-()=>`<div class="hl">More Mistakes <span class="g">to Avoid</span></div>
-<ul class="bl"><li><span class="bm r">✕</span>Uploading documents without context</li>
+// 12 — Mistakes 2
+()=>`<div class="hl"><span class="l1">More Mistakes</span><span class="l2">to Avoid</span></div>
+<ul class="bl">
+<li><span class="bm r">✕</span>Uploading documents without context</li>
 <li><span class="bm r">✕</span>Using vague or incomplete prompts</li>
 <li><span class="bm r">✕</span>Failing to build a Plan B early</li>
 <li><span class="bm r">✕</span>Rushing to price before validation</li></ul>`,
 
-// 13
+// 13 — Underwriter
 ()=>`<div class="icon">🧠</div>
-<div class="hl">Think Like <span class="g">an Underwriter</span></div>
-<ul class="bl"><li><span class="bm gn">✓</span>Validate assumptions early</li>
+<div class="hl"><span class="l1">Think Like</span><span class="l2">an Underwriter</span></div>
+<ul class="bl">
+<li><span class="bm gn">✓</span>Validate assumptions early</li>
 <li><span class="bm gn">✓</span>Review documentation before submission</li>
 <li><span class="bm gn">✓</span>Develop Plan B before it's needed</li>
 <li><span class="bm gn">✓</span>Reduce downstream surprises</li></ul>`,
 
-// 14
-()=>`<div class="hl">Start with <span class="g">Class A Investors</span></div>
+// 14 — Waterfall
+()=>`<div class="hl"><span class="l1">Start with</span><span class="l2">Class A Investors</span></div>
 <div class="wf">
-<div class="wt"><div class="wb st">Plan A</div><div class="wn">Deephaven · Verus · Annaly · MAXEX <small>— Start here</small></div></div>
+<div class="wt"><div class="wb st">Plan A</div><div class="wn">Deephaven · Verus · Annaly · MAXEX<small> — Start here</small></div></div>
 <div class="wt"><div class="wb">Plan B</div><div class="wn">Vista Point · NewFi · NexBank</div></div>
 <div class="wt"><div class="wb">Plan C</div><div class="wn">Champions · NQM Funding</div></div>
 </div>
 <div class="wsub">Discipline, not preference — work the waterfall in order.</div>`,
 
-// 15
+// 15 — Workflow Summary
 ()=>`<div class="icon">📋</div>
-<div class="hl">Proper <span class="g">Workflow Summary</span></div>
-<ul class="bl"><li><span class="bm">1</span>General Chat → Coach and strategize</li>
+<div class="hl"><span class="l1">Proper</span><span class="l2">Workflow Summary</span></div>
+<ul class="bl">
+<li><span class="bm">1</span>General Chat → Coach and strategize</li>
 <li><span class="bm">2</span>Find a Loan Product → Discover options</li>
 <li><span class="bm">3</span>Chat with a Product → Validate precision</li>
 <li><span class="bm">4</span>Chat with Any PDF → Review documents</li>
 <li><span class="bm">5</span>MISMO 3.4 Upload → Confirm pricing</li></ul>`,
 
-// 16
+// 16 — Compliance
 ()=>`<div class="icon">⚖️</div>
-<div class="hl">LIA Is a Support Tool — <span class="g">Not Approval</span></div>
-<ul class="bl"><li><span class="bm">›</span>LIA provides decision support</li>
+<div class="hl"><span class="l1">LIA Is a Support Tool —</span><span class="l2">Not Approval</span></div>
+<ul class="bl">
+<li><span class="bm">›</span>LIA provides decision support</li>
 <li><span class="bm">›</span>You are the Licensed Loan Officer</li>
 <li><span class="bm">›</span>Verify outputs against official guidelines</li></ul>`,
 
-// 17
+// 17 — Feedback
 ()=>`<div class="icon">💬</div>
-<div class="hl">Provide Feedback <span class="g">to Improve LIA</span></div>
-<ul class="bl"><li><span class="bm">👍</span>Mark accurate, helpful responses</li>
+<div class="hl"><span class="l1">Provide Feedback</span><span class="l2">to Improve LIA</span></div>
+<ul class="bl">
+<li><span class="bm">👍</span>Mark accurate, helpful responses</li>
 <li><span class="bm">👎</span>Flag unclear or incorrect results</li>
 <li><span class="bm">›</span>Your feedback directly improves performance</li></ul>`,
 
-// 18
-()=>`<div class="hl" style="font-size:clamp(32px,4.2vw,56px)">Structure Smarter. Move Faster.<br><span class="g">Submit Cleaner.</span></div>
-<ul class="bl" style="margin-top:10px"><li><span class="bm">›</span>LIA is your strategic advantage</li>
+// 18 — Final
+()=>`<div class="hl"><span class="l1">Structure Smarter. Move Faster.</span><span class="l2">Submit Cleaner.</span></div>
+<ul class="bl" style="margin-top:4px">
+<li><span class="bm">›</span>LIA is your strategic advantage</li>
 <li><span class="bm">›</span>Move from uncertainty to confidence</li>
 <li><span class="bm">›</span>Follow the sequence. Use the right tool.</li></ul>
 <div class="cta">ai.griffinfunding.com</div>`
@@ -237,7 +253,6 @@ const S=[
 
 let c=0,play=true,tmr=null;
 const bd=document.getElementById('B'),dt=document.getElementById('D'),nm=document.getElementById('N');
-
 S.forEach(()=>{const d=document.createElement('div');d.className='dot';dt.appendChild(d)});
 
 function render(){
@@ -246,7 +261,6 @@ bd.innerHTML=S[c]();
 nm.textContent=(c+1)+' / '+S.length;
 document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('on',i===c));
 }
-
 function next(){c=(c+1)%S.length;render()}
 function prev(){c=(c-1+S.length)%S.length;render()}
 function go(){clearInterval(tmr);tmr=setInterval(next,8000);play=true;document.getElementById('pp').innerHTML='&#10074;&#10074;'}
@@ -255,13 +269,11 @@ function stop(){clearInterval(tmr);play=false;document.getElementById('pp').inne
 document.getElementById('nx').onclick=()=>{next();if(play)go()};
 document.getElementById('pv').onclick=()=>{prev();if(play)go()};
 document.getElementById('pp').onclick=()=>{play?stop():go()};
-
 document.addEventListener('keydown',e=>{
 if(e.key==='ArrowRight'){next();if(play)go()}
 if(e.key==='ArrowLeft'){prev();if(play)go()}
 if(e.key===' '){e.preventDefault();play?stop():go()}
 });
-
 render();go();
 </script>
 </body>
